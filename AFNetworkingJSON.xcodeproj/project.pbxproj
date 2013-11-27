@@ -40,6 +40,8 @@
 		0B77E36E1845D15200BD430F /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77E36D1845D15200BD430F /* CategoryCell.m */; };
 		0B77E3701845D16400BD430F /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B77E36F1845D16400BD430F /* CategoryCell.xib */; };
 		0B77E3731845D49E00BD430F /* ShopCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77E3721845D49E00BD430F /* ShopCategory.m */; };
+		0B77E3771845E71400BD430F /* ImageFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77E3751845E71400BD430F /* ImageFullScreenViewController.m */; };
+		0B77E3781845E71400BD430F /* ImageFullScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B77E3761845E71400BD430F /* ImageFullScreenViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +110,9 @@
 		0B77E36F1845D16400BD430F /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		0B77E3711845D49E00BD430F /* ShopCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCategory.h; sourceTree = "<group>"; };
 		0B77E3721845D49E00BD430F /* ShopCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCategory.m; sourceTree = "<group>"; };
+		0B77E3741845E71400BD430F /* ImageFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFullScreenViewController.h; sourceTree = "<group>"; };
+		0B77E3751845E71400BD430F /* ImageFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFullScreenViewController.m; sourceTree = "<group>"; };
+		0B77E3761845E71400BD430F /* ImageFullScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageFullScreenViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +193,9 @@
 				0B77E336184599B400BD430F /* ProductCell.h */,
 				0B77E337184599B400BD430F /* ProductCell.m */,
 				0B77E339184599C900BD430F /* ProductCell.xib */,
+				0B77E3741845E71400BD430F /* ImageFullScreenViewController.h */,
+				0B77E3751845E71400BD430F /* ImageFullScreenViewController.m */,
+				0B77E3761845E71400BD430F /* ImageFullScreenViewController.xib */,
 				0B77E3141845997600BD430F /* Images.xcassets */,
 				0B77E3091845997600BD430F /* Supporting Files */,
 			);
@@ -330,6 +338,7 @@
 				0B77E30D1845997600BD430F /* InfoPlist.strings in Resources */,
 				0B77E3701845D16400BD430F /* CategoryCell.xib in Resources */,
 				0B77E33A184599C900BD430F /* ProductCell.xib in Resources */,
+				0B77E3781845E71400BD430F /* ImageFullScreenViewController.xib in Resources */,
 				0B77E3351845999C00BD430F /* ProductViewController.xib in Resources */,
 				0B77E36B1845D0DD00BD430F /* CategoryViewController.xib in Resources */,
 				0B77E3151845997600BD430F /* Images.xcassets in Resources */,
@@ -370,6 +379,7 @@
 				0B77E35618459DC300BD430F /* AFURLResponseSerialization.m in Sources */,
 				0B77E35718459DC300BD430F /* AFURLSessionManager.m in Sources */,
 				0B77E3131845997600BD430F /* AFAppDelegate.m in Sources */,
+				0B77E3771845E71400BD430F /* ImageFullScreenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

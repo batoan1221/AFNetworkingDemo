@@ -9,6 +9,8 @@
 #import "ProductViewController.h"
 #import "Product.h"
 #import "ProductCell.h"
+#import "ProductImage.h"
+#import "ImageFullScreenViewController.h"
 #import "AFNetworking.h"
 
 @interface ProductViewController ()
@@ -65,8 +67,15 @@ UIAlertViewDelegate
     
     [operation start];
     
-    [self.navigationItem setTitle:self.categoryName];
+    
     [self.productTableView registerNib:[UINib nibWithNibName:@"ProductCell" bundle:nil] forCellReuseIdentifier:@"ProductCell"];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.tintColor = [UIColor blueColor];
+    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
+    [self.navigationItem setTitle:self.categoryName];
 }
 
 - (void)didReceiveMemoryWarning
@@ -104,14 +113,20 @@ UIAlertViewDelegate
 
 - (void)productCellViewTap:(UITapGestureRecognizer *)gestureRecognizer
 {
+//    ProductCell *cell = (ProductCell *)[[[gestureRecognizer.view superview] superview] superview];
+//    NSIndexPath *indexPath = [self.productTableView indexPathForCell:cell];
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Product"
+//                                                    message:[NSString stringWithFormat:@"You've selected %@",[[self.productArray objectAtIndex:indexPath.row] name]]
+//                                                   delegate:self
+//                                          cancelButtonTitle:@"OK"
+//                                          otherButtonTitles:nil, nil];
+//    [alert show];
     ProductCell *cell = (ProductCell *)[[[gestureRecognizer.view superview] superview] superview];
     NSIndexPath *indexPath = [self.productTableView indexPathForCell:cell];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Product"
-                                                    message:[NSString stringWithFormat:@"You've selected %@",[[self.productArray objectAtIndex:indexPath.row] name]]
-                                                   delegate:self
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil, nil];
-    [alert show];
+    ImageFullScreenViewController *imageFullScreenViewController = [[ImageFullScreenViewController alloc] init];
+    imageFullScreenViewController.imageURL = [[[[self.productArray objectAtIndex:indexPath.row] imageMutableArray] objectAtIndex:0] imageLarge];
+    imageFullScreenViewController.imageTitle = [[self.productArray objectAtIndex:indexPath.row] name];
+    [self.navigationController pushViewController:imageFullScreenViewController animated:YES];
 }
 
 @end
