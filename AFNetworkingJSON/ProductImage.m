@@ -10,10 +10,6 @@
 
 @interface ProductImage()
 
-@property (strong, nonatomic) NSString *imageSmall;
-@property (strong, nonatomic) NSString *imageMedium;
-@property (strong, nonatomic) NSString *imageLarge;
-
 @end
 
 @implementation ProductImage
@@ -21,8 +17,8 @@
 - (ProductImage *)initWithArray:(NSArray *)sizeURLArray{
     ProductImage *productImage = [[ProductImage alloc] init];
     productImage.imageSmall = [sizeURLArray objectAtIndex:0];
-    productImage.imageSmall = [sizeURLArray objectAtIndex:1];
-    productImage.imageSmall = [sizeURLArray objectAtIndex:2];
+    productImage.imageMedium = [sizeURLArray objectAtIndex:1];
+    productImage.imageLarge = [sizeURLArray objectAtIndex:2];
     return productImage;
 }
 

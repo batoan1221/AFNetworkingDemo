@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Product.h"
 
 @interface ProductCell : UITableViewCell
+
+- (void)configCellWithProduct:(Product *)product;
 
 @end

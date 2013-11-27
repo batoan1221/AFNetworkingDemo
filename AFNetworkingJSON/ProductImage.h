@@ -10,6 +10,10 @@
 
 @interface ProductImage : NSObject
 
+@property (strong, nonatomic) NSString *imageSmall;
+@property (strong, nonatomic) NSString *imageMedium;
+@property (strong, nonatomic) NSString *imageLarge;
+
 - (ProductImage *)initWithArray:(NSArray *)sizeURLArray;
 
 @end

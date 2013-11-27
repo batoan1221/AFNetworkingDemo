@@ -8,6 +8,7 @@
 
 #import "ProductCell.h"
 #import "Product.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface ProductCell()
 
@@ -21,7 +22,10 @@
 @implementation ProductCell
 
 - (void)configCellWithProduct:(Product *)product{
-    self.productNameLabel.text = product.
+    self.productNameLabel.text = product.name;
+    self.priceLabel.text = product.price;
+    self.stockStatusLabel.text = product.stockStatus;
+    [self.firstImageView setImageWithURL:[NSURL URLWithString:[[product.imageMutableArray firstObject] imageLarge]]];
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

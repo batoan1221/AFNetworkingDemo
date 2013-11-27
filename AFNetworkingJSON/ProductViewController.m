@@ -18,7 +18,7 @@ UITableViewDataSource,
 UITableViewDelegate
 >
 
-@property (weak, nonatomic) NSMutableArray *productArray;
+@property (strong, nonatomic) NSMutableArray *productArray;
 @property (weak, nonatomic) IBOutlet UITableView *productTableView;
 
 @end
@@ -34,6 +34,13 @@ UITableViewDelegate
     return self;
 }
 
+- (NSMutableArray *)productArray{
+    if (!_productArray)
+        _productArray = [NSMutableArray array];
+    
+    return _productArray;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -43,20 +50,20 @@ UITableViewDelegate
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id reponseObject){
         NSArray *productsArray = reponseObject[@"products"];
         for (int i = 0; i < [productsArray count]; i++) {
-            NSDictionary *productDictionary = [productsArray objectAtIndex:i];
-            [self.productArray addObject:[[Product alloc] initWithDictionary:productDictionary]];
+            [self.productArray addObject:[[Product alloc] initWithDictionary:productsArray[i]]];
         }
+        
+        [self.productTableView reloadData];
         
     }failure:nil];
     
     [operation start];
     
-    
-    
-    [self. productTableView registerNib:[UINib nibWithNibName:@"ProductCell" bundle:nil] forCellReuseIdentifier:@"ProductCell"];
+    [self.productTableView registerNib:[UINib nibWithNibName:@"ProductCell" bundle:nil] forCellReuseIdentifier:@"ProductCell"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,12 +74,12 @@ UITableViewDelegate
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     ProductCell *cell = (ProductCell *)[tableView dequeueReusableCellWithIdentifier:@"ProductCell"];
-    cell.
+    [cell configCellWithProduct:[self.productArray objectAtIndex:indexPath.row]];
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return self.productArray.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -80,7 +87,11 @@ UITableViewDelegate
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 310;
+    return 386;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

@@ -34,6 +34,7 @@
 		0B77E35718459DC300BD430F /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77E34E18459DC300BD430F /* AFURLSessionManager.m */; };
 		0B77E35A1845A62B00BD430F /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77E3591845A62B00BD430F /* Product.m */; };
 		0B77E35D1845A80E00BD430F /* ProductImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77E35C1845A80E00BD430F /* ProductImage.m */; };
+		0B77E3631845C18800BD430F /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77E3621845C18800BD430F /* UIImageView+AFNetworking.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,8 @@
 		0B77E3591845A62B00BD430F /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
 		0B77E35B1845A80E00BD430F /* ProductImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductImage.h; sourceTree = "<group>"; };
 		0B77E35C1845A80E00BD430F /* ProductImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductImage.m; sourceTree = "<group>"; };
+		0B77E3611845C18800BD430F /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		0B77E3621845C18800BD430F /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +205,8 @@
 		0B77E33B18459DC300BD430F /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				0B77E3611845C18800BD430F /* UIImageView+AFNetworking.h */,
+				0B77E3621845C18800BD430F /* UIImageView+AFNetworking.m */,
 				0B77E33C18459DC300BD430F /* AFHTTPRequestOperation.h */,
 				0B77E33D18459DC300BD430F /* AFHTTPRequestOperation.m */,
 				0B77E33E18459DC300BD430F /* AFHTTPRequestOperationManager.h */,
@@ -334,6 +339,7 @@
 				0B77E35A1845A62B00BD430F /* Product.m in Sources */,
 				0B77E35518459DC300BD430F /* AFURLRequestSerialization.m in Sources */,
 				0B77E35118459DC300BD430F /* AFHTTPSessionManager.m in Sources */,
+				0B77E3631845C18800BD430F /* UIImageView+AFNetworking.m in Sources */,
 				0B77E35218459DC300BD430F /* AFNetworkReachabilityManager.m in Sources */,
 				0B77E35618459DC300BD430F /* AFURLResponseSerialization.m in Sources */,
 				0B77E35718459DC300BD430F /* AFURLSessionManager.m in Sources */,

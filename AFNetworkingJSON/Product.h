@@ -14,9 +14,7 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *price;
 @property (strong, nonatomic) NSString *stockStatus;
-@property (strong, nonatomic) ProductImage *firstImage;
-@property (strong, nonatomic) ProductImage *secondImage;
-@property (strong, nonatomic) ProductImage *thirdImage;
+@property (strong, nonatomic) NSMutableArray *imageMutableArray;
 
 - (Product *)initWithDictionary:(NSDictionary *)dictionary;
 

@@ -22,11 +22,11 @@
     product.name = [dictionary objectForKey:@"name"];
     product.price = [dictionary objectForKey:@"price"];
     product.stockStatus = [dictionary objectForKey:@"stock_status"];
-    
     NSArray *imageArray = [dictionary objectForKey:@"images"];
-    product.firstImage = [[ProductImage alloc] initWithArray:[imageArray objectAtIndex:0]];
-    product.secondImage = [[ProductImage alloc] initWithArray:[imageArray objectAtIndex:1]];
-    product.thirdImage = [[ProductImage alloc] initWithArray:[imageArray objectAtIndex:2]];
+    product.imageMutableArray = [[NSMutableArray alloc] init];
+    for(int i = 0;i < [imageArray count];i++){
+        [product.imageMutableArray addObject:[[ProductImage alloc] initWithArray:[imageArray objectAtIndex:i]]];
+    }
     
     return product;
 }
