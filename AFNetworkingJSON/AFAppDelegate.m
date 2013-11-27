@@ -7,6 +7,7 @@
 //
 
 #import "AFAppDelegate.h"
+#import "CategoryViewController.h"
 #import "ProductViewController.h"
 
 @implementation AFAppDelegate
@@ -17,7 +18,7 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[ProductViewController alloc] initWithNibName:@"ProductViewController" bundle:nil]];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[CategoryViewController alloc] initWithNibName:@"CategoryViewController" bundle:nil]];
     [self.window makeKeyAndVisible];
     return YES;
 }

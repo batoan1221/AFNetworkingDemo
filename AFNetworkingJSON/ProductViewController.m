@@ -10,7 +10,6 @@
 #import "Product.h"
 #import "ProductCell.h"
 #import "AFNetworking.h"
-#import "ProductCellView.h"
 
 @interface ProductViewController ()
 
@@ -22,7 +21,7 @@ UIAlertViewDelegate
 
 @property (strong, nonatomic) NSMutableArray *productArray;
 @property (weak, nonatomic) IBOutlet UITableView *productTableView;
-@property (weak, nonatomic) ProductCellView *productCellView;
+@property (weak, nonatomic) UIView *productCellView;
 
 @end
 
@@ -49,7 +48,7 @@ UIAlertViewDelegate
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    NSURL *url = [[NSURL alloc] initWithString:@"http://jkshop-staging.ap01.aws.af.cm/?json=products/tk_get_products_by_category&category_id=69"];
+    NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://jkshop-staging.ap01.aws.af.cm/?json=products/tk_get_products_by_category&category_id=%@",self.categoryId]];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -66,7 +65,7 @@ UIAlertViewDelegate
     
     [operation start];
     
-    [self.navigationItem setTitle:@"Products"];
+    [self.navigationItem setTitle:self.categoryName];
     [self.productTableView registerNib:[UINib nibWithNibName:@"ProductCell" bundle:nil] forCellReuseIdentifier:@"ProductCell"];
 }
 
@@ -105,7 +104,13 @@ UIAlertViewDelegate
 
 - (void)productCellViewTap:(UITapGestureRecognizer *)gestureRecognizer
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Product" message:@"You've selected" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    ProductCell *cell = (ProductCell *)[[[gestureRecognizer.view superview] superview] superview];
+    NSIndexPath *indexPath = [self.productTableView indexPathForCell:cell];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Product"
+                                                    message:[NSString stringWithFormat:@"You've selected %@",[[self.productArray objectAtIndex:indexPath.row] name]]
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil, nil];
     [alert show];
 }
 

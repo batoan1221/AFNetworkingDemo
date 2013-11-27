@@ -10,4 +10,7 @@
 
 @interface ProductViewController : UIViewController
 
+@property (strong, nonatomic) NSString *categoryId;
+@property (strong, nonatomic) NSString *categoryName;
+
 @end

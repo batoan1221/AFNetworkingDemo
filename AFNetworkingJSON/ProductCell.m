@@ -8,7 +8,6 @@
 
 #import "ProductCell.h"
 #import "Product.h"
-#import "ProductCellView.h"
 #import "UIImageView+AFNetworking.h"
 
 @interface ProductCell()

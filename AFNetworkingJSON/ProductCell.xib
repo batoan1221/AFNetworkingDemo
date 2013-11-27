@@ -13,7 +13,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="381"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" id="KmG-EU-HEo" customClass="ProductCellView">
+                    <view contentMode="scaleToFill" id="KmG-EU-HEo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="381"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -51,7 +51,7 @@
             <connections>
                 <outlet property="firstImageView" destination="HAu-R2-6DX" id="Nng-zl-WMf"/>
                 <outlet property="priceLabel" destination="CJz-VE-glr" id="Jz4-wQ-HS1"/>
-                <outlet property="productCellView" destination="KmG-EU-HEo" id="IHL-Pg-c64"/>
+                <outlet property="productCellView" destination="KmG-EU-HEo" id="FTc-lD-oOH"/>
                 <outlet property="productNameLabel" destination="bN9-lG-OcK" id="YiS-FJ-Q8I"/>
                 <outlet property="stockStatusLabel" destination="P3t-lZ-4ct" id="w1c-Sj-hYH"/>
             </connections>
