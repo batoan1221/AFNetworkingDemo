@@ -18,7 +18,6 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[ProductViewController alloc] initWithNibName:@"ProductViewController" bundle:nil]];
-    
     [self.window makeKeyAndVisible];
     return YES;
 }

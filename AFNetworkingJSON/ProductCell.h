@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProductCellView.h"
 #import "Product.h"
 
 @interface ProductCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet ProductCellView *productCellView;
 
 - (void)configCellWithProduct:(Product *)product;
 

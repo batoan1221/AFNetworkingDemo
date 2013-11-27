@@ -10,16 +10,19 @@
 #import "Product.h"
 #import "ProductCell.h"
 #import "AFNetworking.h"
+#import "ProductCellView.h"
 
 @interface ProductViewController ()
 
 <
 UITableViewDataSource,
-UITableViewDelegate
+UITableViewDelegate,
+UIAlertViewDelegate
 >
 
 @property (strong, nonatomic) NSMutableArray *productArray;
 @property (weak, nonatomic) IBOutlet UITableView *productTableView;
+@property (weak, nonatomic) ProductCellView *productCellView;
 
 @end
 
@@ -63,6 +66,7 @@ UITableViewDelegate
     
     [operation start];
     
+    [self.navigationItem setTitle:@"Products"];
     [self.productTableView registerNib:[UINib nibWithNibName:@"ProductCell" bundle:nil] forCellReuseIdentifier:@"ProductCell"];
 }
 
@@ -75,6 +79,11 @@ UITableViewDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     ProductCell *cell = (ProductCell *)[tableView dequeueReusableCellWithIdentifier:@"ProductCell"];
     [cell configCellWithProduct:[self.productArray objectAtIndex:indexPath.row]];
+    [cell.productCellView setUserInteractionEnabled:YES];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(productCellViewTap:)];
+    [tap setNumberOfTouchesRequired:1];
+    [tap setNumberOfTapsRequired:1];
+    [cell.productCellView addGestureRecognizer:tap];
     return cell;
 }
 
@@ -92,6 +101,12 @@ UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)productCellViewTap:(UITapGestureRecognizer *)gestureRecognizer
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Product" message:@"You've selected" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 @end

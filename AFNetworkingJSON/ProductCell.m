@@ -8,6 +8,7 @@
 
 #import "ProductCell.h"
 #import "Product.h"
+#import "ProductCellView.h"
 #import "UIImageView+AFNetworking.h"
 
 @interface ProductCell()
@@ -17,9 +18,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *stockStatusLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *firstImageView;
 
+
 @end
 
 @implementation ProductCell
+
+
 
 - (void)configCellWithProduct:(Product *)product{
     self.productNameLabel.text = product.name;

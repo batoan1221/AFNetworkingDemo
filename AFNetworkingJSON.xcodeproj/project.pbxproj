@@ -35,6 +35,9 @@
 		0B77E35A1845A62B00BD430F /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77E3591845A62B00BD430F /* Product.m */; };
 		0B77E35D1845A80E00BD430F /* ProductImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77E35C1845A80E00BD430F /* ProductImage.m */; };
 		0B77E3631845C18800BD430F /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77E3621845C18800BD430F /* UIImageView+AFNetworking.m */; };
+		0B77E3661845C6CA00BD430F /* ProductCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77E3651845C6CA00BD430F /* ProductCellView.m */; };
+		0B77E36A1845D0DD00BD430F /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77E3681845D0DD00BD430F /* CategoryViewController.m */; };
+		0B77E36B1845D0DD00BD430F /* CategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B77E3691845D0DD00BD430F /* CategoryViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +98,11 @@
 		0B77E35C1845A80E00BD430F /* ProductImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductImage.m; sourceTree = "<group>"; };
 		0B77E3611845C18800BD430F /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		0B77E3621845C18800BD430F /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		0B77E3641845C6CA00BD430F /* ProductCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCellView.h; sourceTree = "<group>"; };
+		0B77E3651845C6CA00BD430F /* ProductCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCellView.m; sourceTree = "<group>"; };
+		0B77E3671845D0DD00BD430F /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
+		0B77E3681845D0DD00BD430F /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
+		0B77E3691845D0DD00BD430F /* CategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +166,9 @@
 				0B77E3111845997600BD430F /* AFAppDelegate.h */,
 				0B77E3121845997600BD430F /* AFAppDelegate.m */,
 				0B77E3311845999C00BD430F /* ProductViewController.h */,
+				0B77E3671845D0DD00BD430F /* CategoryViewController.h */,
+				0B77E3681845D0DD00BD430F /* CategoryViewController.m */,
+				0B77E3691845D0DD00BD430F /* CategoryViewController.xib */,
 				0B77E3321845999C00BD430F /* ProductViewController.m */,
 				0B77E3331845999C00BD430F /* ProductViewController.xib */,
 				0B77E3581845A62B00BD430F /* Product.h */,
@@ -167,6 +178,8 @@
 				0B77E336184599B400BD430F /* ProductCell.h */,
 				0B77E337184599B400BD430F /* ProductCell.m */,
 				0B77E339184599C900BD430F /* ProductCell.xib */,
+				0B77E3641845C6CA00BD430F /* ProductCellView.h */,
+				0B77E3651845C6CA00BD430F /* ProductCellView.m */,
 				0B77E3141845997600BD430F /* Images.xcassets */,
 				0B77E3091845997600BD430F /* Supporting Files */,
 			);
@@ -309,6 +322,7 @@
 				0B77E30D1845997600BD430F /* InfoPlist.strings in Resources */,
 				0B77E33A184599C900BD430F /* ProductCell.xib in Resources */,
 				0B77E3351845999C00BD430F /* ProductViewController.xib in Resources */,
+				0B77E36B1845D0DD00BD430F /* CategoryViewController.xib in Resources */,
 				0B77E3151845997600BD430F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,6 +346,7 @@
 				0B77E35318459DC300BD430F /* AFSecurityPolicy.m in Sources */,
 				0B77E35D1845A80E00BD430F /* ProductImage.m in Sources */,
 				0B77E338184599B400BD430F /* ProductCell.m in Sources */,
+				0B77E36A1845D0DD00BD430F /* CategoryViewController.m in Sources */,
 				0B77E35018459DC300BD430F /* AFHTTPRequestOperationManager.m in Sources */,
 				0B77E35418459DC300BD430F /* AFURLConnectionOperation.m in Sources */,
 				0B77E34F18459DC300BD430F /* AFHTTPRequestOperation.m in Sources */,
@@ -340,6 +355,7 @@
 				0B77E35518459DC300BD430F /* AFURLRequestSerialization.m in Sources */,
 				0B77E35118459DC300BD430F /* AFHTTPSessionManager.m in Sources */,
 				0B77E3631845C18800BD430F /* UIImageView+AFNetworking.m in Sources */,
+				0B77E3661845C6CA00BD430F /* ProductCellView.m in Sources */,
 				0B77E35218459DC300BD430F /* AFNetworkReachabilityManager.m in Sources */,
 				0B77E35618459DC300BD430F /* AFURLResponseSerialization.m in Sources */,
 				0B77E35718459DC300BD430F /* AFURLSessionManager.m in Sources */,
