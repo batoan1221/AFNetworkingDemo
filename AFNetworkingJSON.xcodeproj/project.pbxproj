@@ -42,6 +42,12 @@
 		0B77E3731845D49E00BD430F /* ShopCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77E3721845D49E00BD430F /* ShopCategory.m */; };
 		0B77E3771845E71400BD430F /* ImageFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77E3751845E71400BD430F /* ImageFullScreenViewController.m */; };
 		0B77E3781845E71400BD430F /* ImageFullScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B77E3761845E71400BD430F /* ImageFullScreenViewController.xib */; };
+		0BB064DA18473ED700B02BAC /* AMBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BB064D518473ED700B02BAC /* AMBlurView.m */; };
+		0BB064DB18473ED700B02BAC /* MYBlurIntroductionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BB064D718473ED700B02BAC /* MYBlurIntroductionView.m */; };
+		0BB064DC18473ED700B02BAC /* MYIntroductionPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BB064D918473ED700B02BAC /* MYIntroductionPanel.m */; };
+		0BB064DE18473FF800B02BAC /* jk.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BB064DD18473FF800B02BAC /* jk.png */; };
+		0BB064E21847458400B02BAC /* ODRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BB064E11847458400B02BAC /* ODRefreshControl.m */; };
+		0BB064E418474A5300B02BAC /* moon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0BB064E318474A5300B02BAC /* moon.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +119,16 @@
 		0B77E3741845E71400BD430F /* ImageFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFullScreenViewController.h; sourceTree = "<group>"; };
 		0B77E3751845E71400BD430F /* ImageFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFullScreenViewController.m; sourceTree = "<group>"; };
 		0B77E3761845E71400BD430F /* ImageFullScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageFullScreenViewController.xib; sourceTree = "<group>"; };
+		0BB064D418473ED700B02BAC /* AMBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMBlurView.h; sourceTree = "<group>"; };
+		0BB064D518473ED700B02BAC /* AMBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMBlurView.m; sourceTree = "<group>"; };
+		0BB064D618473ED700B02BAC /* MYBlurIntroductionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYBlurIntroductionView.h; sourceTree = "<group>"; };
+		0BB064D718473ED700B02BAC /* MYBlurIntroductionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYBlurIntroductionView.m; sourceTree = "<group>"; };
+		0BB064D818473ED700B02BAC /* MYIntroductionPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYIntroductionPanel.h; sourceTree = "<group>"; };
+		0BB064D918473ED700B02BAC /* MYIntroductionPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYIntroductionPanel.m; sourceTree = "<group>"; };
+		0BB064DD18473FF800B02BAC /* jk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = jk.png; path = ../../../../Downloads/jk.png; sourceTree = "<group>"; };
+		0BB064E01847458400B02BAC /* ODRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODRefreshControl.h; sourceTree = "<group>"; };
+		0BB064E11847458400B02BAC /* ODRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRefreshControl.m; sourceTree = "<group>"; };
+		0BB064E318474A5300B02BAC /* moon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = moon.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +158,8 @@
 		0B77E2F61845997600BD430F = {
 			isa = PBXGroup;
 			children = (
+				0BB064DF1847458400B02BAC /* ODRefreshControl */,
+				0BB064D318473ED700B02BAC /* MYBlurIntroductionView */,
 				0B77E33B18459DC300BD430F /* AFNetworking */,
 				0B77E3081845997600BD430F /* AFNetworkingJSON */,
 				0B77E3211845997700BD430F /* AFNetworkingJSONTests */,
@@ -197,6 +215,8 @@
 				0B77E3751845E71400BD430F /* ImageFullScreenViewController.m */,
 				0B77E3761845E71400BD430F /* ImageFullScreenViewController.xib */,
 				0B77E3141845997600BD430F /* Images.xcassets */,
+				0BB064DD18473FF800B02BAC /* jk.png */,
+				0BB064E318474A5300B02BAC /* moon.jpg */,
 				0B77E3091845997600BD430F /* Supporting Files */,
 			);
 			path = AFNetworkingJSON;
@@ -257,6 +277,28 @@
 				0B77E34E18459DC300BD430F /* AFURLSessionManager.m */,
 			);
 			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		0BB064D318473ED700B02BAC /* MYBlurIntroductionView */ = {
+			isa = PBXGroup;
+			children = (
+				0BB064D418473ED700B02BAC /* AMBlurView.h */,
+				0BB064D518473ED700B02BAC /* AMBlurView.m */,
+				0BB064D618473ED700B02BAC /* MYBlurIntroductionView.h */,
+				0BB064D718473ED700B02BAC /* MYBlurIntroductionView.m */,
+				0BB064D818473ED700B02BAC /* MYIntroductionPanel.h */,
+				0BB064D918473ED700B02BAC /* MYIntroductionPanel.m */,
+			);
+			path = MYBlurIntroductionView;
+			sourceTree = "<group>";
+		};
+		0BB064DF1847458400B02BAC /* ODRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				0BB064E01847458400B02BAC /* ODRefreshControl.h */,
+				0BB064E11847458400B02BAC /* ODRefreshControl.m */,
+			);
+			path = ODRefreshControl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,7 +382,9 @@
 				0B77E33A184599C900BD430F /* ProductCell.xib in Resources */,
 				0B77E3781845E71400BD430F /* ImageFullScreenViewController.xib in Resources */,
 				0B77E3351845999C00BD430F /* ProductViewController.xib in Resources */,
+				0BB064E418474A5300B02BAC /* moon.jpg in Resources */,
 				0B77E36B1845D0DD00BD430F /* CategoryViewController.xib in Resources */,
+				0BB064DE18473FF800B02BAC /* jk.png in Resources */,
 				0B77E3151845997600BD430F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,12 +411,16 @@
 				0B77E36A1845D0DD00BD430F /* CategoryViewController.m in Sources */,
 				0B77E35018459DC300BD430F /* AFHTTPRequestOperationManager.m in Sources */,
 				0B77E35418459DC300BD430F /* AFURLConnectionOperation.m in Sources */,
+				0BB064DB18473ED700B02BAC /* MYBlurIntroductionView.m in Sources */,
 				0B77E3731845D49E00BD430F /* ShopCategory.m in Sources */,
 				0B77E36E1845D15200BD430F /* CategoryCell.m in Sources */,
 				0B77E34F18459DC300BD430F /* AFHTTPRequestOperation.m in Sources */,
 				0B77E30F1845997600BD430F /* main.m in Sources */,
+				0BB064DC18473ED700B02BAC /* MYIntroductionPanel.m in Sources */,
 				0B77E35A1845A62B00BD430F /* Product.m in Sources */,
 				0B77E35518459DC300BD430F /* AFURLRequestSerialization.m in Sources */,
+				0BB064DA18473ED700B02BAC /* AMBlurView.m in Sources */,
+				0BB064E21847458400B02BAC /* ODRefreshControl.m in Sources */,
 				0B77E35118459DC300BD430F /* AFHTTPSessionManager.m in Sources */,
 				0B77E3631845C18800BD430F /* UIImageView+AFNetworking.m in Sources */,
 				0B77E35218459DC300BD430F /* AFNetworkReachabilityManager.m in Sources */,
@@ -580,6 +628,7 @@
 				0B77E32D1845997700BD430F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0B77E32E1845997700BD430F /* Build configuration list for PBXNativeTarget "AFNetworkingJSONTests" */ = {
 			isa = XCConfigurationList;
@@ -588,6 +637,7 @@
 				0B77E3301845997700BD430F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

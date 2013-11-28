@@ -12,6 +12,7 @@
 #import "ProductImage.h"
 #import "ImageFullScreenViewController.h"
 #import "AFNetworking.h"
+#import "ODRefreshControl.h"
 
 @interface ProductViewController ()
 
@@ -25,6 +26,7 @@ UIAlertViewDelegate
 @property (weak, nonatomic) IBOutlet UITableView *productTableView;
 @property (weak, nonatomic) UIView *productCellView;
 @property (strong, nonatomic) UIActivityIndicatorView *spinner;
+@property (strong, nonatomic) ODRefreshControl *refreshControl;
 
 @end
 
@@ -50,32 +52,11 @@ UIAlertViewDelegate
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self initView];
+    [self loadProduct];
+   
+    self.productTableView.contentInset = UIEdgeInsetsMake(-60, 0, 0, 0);
     
-    NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://jkshop-staging.ap01.aws.af.cm/?json=products/tk_get_products_by_category&category_id=%@",self.categoryId]];
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-    
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id reponseObject){
-        NSArray *productsArray = reponseObject[@"products"];
-        for (int i = 0; i < [productsArray count]; i++) {
-            [self.productArray addObject:[[Product alloc] initWithDictionary:productsArray[i]]];
-        }
-        
-        [self.spinner stopAnimating];
-        [self.productTableView reloadData];
-        
-    }failure:nil];
-    
-    [operation start];
-    
-    self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    self.spinner.center = CGPointMake(160, 240);
-    self.spinner.hidesWhenStopped = YES;
-    [self.view addSubview:self.spinner];
-    [self.spinner startAnimating];
-    
-    [self.productTableView registerNib:[UINib nibWithNibName:@"ProductCell" bundle:nil] forCellReuseIdentifier:@"ProductCell"];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -89,6 +70,41 @@ UIAlertViewDelegate
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)initView{
+    self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.spinner.center = CGPointMake(160, 240);
+    self.spinner.hidesWhenStopped = YES;
+    [self.view addSubview:self.spinner];
+    [self.spinner startAnimating];
+    
+    self.refreshControl = [[ODRefreshControl alloc] initInScrollView:self.productTableView];
+    [self.refreshControl addTarget:self action:@selector(loadProduct) forControlEvents:UIControlEventValueChanged];
+}
+
+- (void)loadProduct{
+    NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://jkshop-staging.ap01.aws.af.cm/?json=products/tk_get_products_by_category&category_id=%@",self.categoryId]];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id reponseObject){
+        NSArray *productsArray = reponseObject[@"products"];
+        for (int i = 0; i < [productsArray count]; i++) {
+            [self.productArray addObject:[[Product alloc] initWithDictionary:productsArray[i]]];
+        }
+        
+        [self.spinner stopAnimating];
+        [self.refreshControl endRefreshing];
+        [self.productTableView reloadData];
+        
+    }failure:nil];
+    
+    [operation start];
+    
+    [self.productTableView registerNib:[UINib nibWithNibName:@"ProductCell" bundle:nil] forCellReuseIdentifier:@"ProductCell"];
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
