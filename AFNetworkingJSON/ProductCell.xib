@@ -17,6 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="381"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="cH2-4a-tQP">
+                                <rect key="frame" x="150" y="181" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="HAu-R2-6DX">
                                 <rect key="frame" x="20" y="51" width="280" height="280"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -53,6 +57,7 @@
                 <outlet property="priceLabel" destination="CJz-VE-glr" id="Jz4-wQ-HS1"/>
                 <outlet property="productCellView" destination="KmG-EU-HEo" id="FTc-lD-oOH"/>
                 <outlet property="productNameLabel" destination="bN9-lG-OcK" id="YiS-FJ-Q8I"/>
+                <outlet property="spinner" destination="cH2-4a-tQP" id="ceo-1c-7BG"/>
                 <outlet property="stockStatusLabel" destination="P3t-lZ-4ct" id="w1c-Sj-hYH"/>
             </connections>
         </tableViewCell>

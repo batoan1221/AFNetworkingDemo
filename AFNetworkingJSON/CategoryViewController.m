@@ -22,6 +22,7 @@ CategoryCellDelegate
 >
 @property (weak, nonatomic) IBOutlet UITableView *categoryTableView;
 @property (strong, nonatomic) NSMutableArray *categoryArray;
+@property (strong, nonatomic) UIActivityIndicatorView *spinner;
 
 @end
 
@@ -56,6 +57,7 @@ CategoryCellDelegate
         for (int i = 0; i < [reponseObject count]; i++) {
             [self.categoryArray addObject:[[ShopCategory alloc] initWithDictionary:[reponseObject objectForKey:[NSString stringWithFormat:@"%d",i]]]];
         }
+        [self.spinner stopAnimating];
         [self.categoryTableView reloadData];
         
     }failure:nil];
@@ -63,6 +65,11 @@ CategoryCellDelegate
     [operation start];
     
     [self.navigationItem setTitle:@"Category"];
+    self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.spinner.center = CGPointMake(160, 240);
+    self.spinner.hidesWhenStopped = YES;
+    [self.view addSubview:self.spinner];
+    [self.spinner startAnimating];
     [self.categoryTableView registerNib:[UINib nibWithNibName:@"CategoryCell" bundle:nil] forCellReuseIdentifier:@"CategoryCell"];
 
 }

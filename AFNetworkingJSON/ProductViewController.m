@@ -24,6 +24,7 @@ UIAlertViewDelegate
 @property (strong, nonatomic) NSMutableArray *productArray;
 @property (weak, nonatomic) IBOutlet UITableView *productTableView;
 @property (weak, nonatomic) UIView *productCellView;
+@property (strong, nonatomic) UIActivityIndicatorView *spinner;
 
 @end
 
@@ -61,12 +62,18 @@ UIAlertViewDelegate
             [self.productArray addObject:[[Product alloc] initWithDictionary:productsArray[i]]];
         }
         
+        [self.spinner stopAnimating];
         [self.productTableView reloadData];
         
     }failure:nil];
     
     [operation start];
     
+    self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.spinner.center = CGPointMake(160, 240);
+    self.spinner.hidesWhenStopped = YES;
+    [self.view addSubview:self.spinner];
+    [self.spinner startAnimating];
     
     [self.productTableView registerNib:[UINib nibWithNibName:@"ProductCell" bundle:nil] forCellReuseIdentifier:@"ProductCell"];
 }
@@ -113,14 +120,6 @@ UIAlertViewDelegate
 
 - (void)productCellViewTap:(UITapGestureRecognizer *)gestureRecognizer
 {
-//    ProductCell *cell = (ProductCell *)[[[gestureRecognizer.view superview] superview] superview];
-//    NSIndexPath *indexPath = [self.productTableView indexPathForCell:cell];
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Product"
-//                                                    message:[NSString stringWithFormat:@"You've selected %@",[[self.productArray objectAtIndex:indexPath.row] name]]
-//                                                   delegate:self
-//                                          cancelButtonTitle:@"OK"
-//                                          otherButtonTitles:nil, nil];
-//    [alert show];
     ProductCell *cell = (ProductCell *)[[[gestureRecognizer.view superview] superview] superview];
     NSIndexPath *indexPath = [self.productTableView indexPathForCell:cell];
     ImageFullScreenViewController *imageFullScreenViewController = [[ImageFullScreenViewController alloc] init];

@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *stockStatusLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *firstImageView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 
 @end
@@ -29,6 +30,7 @@
     self.priceLabel.text = product.price;
     self.stockStatusLabel.text = product.stockStatus;
     [self.firstImageView setImageWithURL:[NSURL URLWithString:[[product.imageMutableArray firstObject] imageLarge]]];
+    [self.spinner startAnimating];
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
