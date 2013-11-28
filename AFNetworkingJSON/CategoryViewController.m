@@ -52,7 +52,10 @@ MYIntroductionDelegate
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self buildIntro];
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"logged_in"]) {
+        [self buildIntro];
+    }
     NSURL *url = [[NSURL alloc] initWithString:@"http://jkshop-staging.ap01.aws.af.cm/?json=products/tk_get_list_categories"];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
@@ -105,13 +108,11 @@ MYIntroductionDelegate
 
 -(void)introduction:(MYBlurIntroductionView *)introductionView didChangeToPanel:(MYIntroductionPanel *)panel withIndex:(NSInteger)panelIndex{
     NSLog(@"Introduction did change to panel %d", panelIndex);
-    
-    //You can edit introduction view properties right from the delegate method!
-    //If it is the first panel, change the color to green!
+
     if (panelIndex == 0) {
         [introductionView setBackgroundColor:[UIColor colorWithRed:90.0f/255.0f green:175.0f/255.0f blue:113.0f/255.0f alpha:0.65]];
     }
-    //If it is the second panel, change the color to blue!
+
     else if (panelIndex == 1){
         [introductionView setBackgroundColor:[UIColor colorWithRed:50.0f/255.0f green:79.0f/255.0f blue:133.0f/255.0f alpha:0.65]];
     }
@@ -121,6 +122,9 @@ MYIntroductionDelegate
 -(void)introduction:(MYBlurIntroductionView *)introductionView didFinishWithType:(MYFinishType)finishType{
     self.navigationController.navigationBar.layer.zPosition = 1;
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
+    NSUserDefaults * usedDefault = [NSUserDefaults standardUserDefaults];
+    [usedDefault setBool:YES forKey:@"logged_in"];
+    [usedDefault synchronize];
 }
 
 
