@@ -65,8 +65,7 @@ MYIntroductionDelegate
 }
 
 - (void)setViewDidLoad{
-    self.categoryArray = [self.categoryArray getCategoryArrayFromJSONWithTableViewToReload:self.categoryTableView];
-    
+    self.categoryArray = [self.categoryArray getCategoryArrayFromJSONWithTableViewToReload:self.categoryTableView];    
     [self.navigationItem setTitle:@"Category"];
     self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.spinner.center = CGPointMake(160, 240);
