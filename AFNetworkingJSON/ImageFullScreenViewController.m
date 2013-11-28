@@ -34,11 +34,18 @@ UIScrollViewDelegate
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setViewDidLoad];
+}
 
+- (void)viewWillAppear:(BOOL)animated{
+    [self setViewWillAppear];
+}
+
+- (void)setViewDidLoad{
+    
     [self.productImageView setImageWithURL:[NSURL URLWithString:self.imageURL]];
     self.productImageView.frame = (CGRect){.origin = CGPointMake(0.0f, 0.0f), .size=self.productImageView.image.size};
     [self.productImageScrollView addSubview:self.productImageView];
-    
     self.productImageScrollView.contentSize = self.productImageView.image.size;
     
     UITapGestureRecognizer *doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewDoubleTapped:)];
@@ -52,14 +59,13 @@ UIScrollViewDelegate
     [self.productImageScrollView addGestureRecognizer:twoFingerTapRecognizer];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
- 
+- (void)setViewWillAppear{
     CGRect scrollViewFrame = self.productImageScrollView.frame;
     CGFloat scaleWidth = scrollViewFrame.size.width / self.productImageScrollView.contentSize.width;
     CGFloat scaleHeight = scrollViewFrame.size.height / self.productImageScrollView.contentSize.height;
     CGFloat minScale = MIN(scaleWidth, scaleHeight);
-    self.productImageScrollView.minimumZoomScale = minScale;
     
+    self.productImageScrollView.minimumZoomScale = minScale;
     self.productImageScrollView.maximumZoomScale = 1.0f;
     self.productImageScrollView.zoomScale = minScale;
     

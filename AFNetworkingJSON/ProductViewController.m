@@ -11,32 +11,23 @@
 #import "ProductCell.h"
 #import "ProductImage.h"
 #import "ImageFullScreenViewController.h"
-#import "AFNetworking.h"
+#import "ShopCategory+Additions.h"
+#import "Product+Additions.h"
+#import "NSMutableArray+Additions.h"
 
 @interface ProductViewController ()
 
 <
 UITableViewDataSource,
-UITableViewDelegate,
-UIAlertViewDelegate
+UITableViewDelegate
 >
 
 @property (strong, nonatomic) NSMutableArray *productArray;
 @property (weak, nonatomic) IBOutlet UITableView *productTableView;
-@property (weak, nonatomic) UIView *productCellView;
 
 @end
 
 @implementation ProductViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (NSMutableArray *)productArray{
     if (!_productArray)
@@ -48,40 +39,23 @@ UIAlertViewDelegate
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
-    NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://jkshop-staging.ap01.aws.af.cm/?json=products/tk_get_products_by_category&category_id=%@",self.categoryId]];
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-    
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id reponseObject){
-        NSArray *productsArray = reponseObject[@"products"];
-        for (int i = 0; i < [productsArray count]; i++) {
-            [self.productArray addObject:[[Product alloc] initWithDictionary:productsArray[i]]];
-        }
-        
-        [self.productTableView reloadData];
-        
-    }failure:nil];
-    
-    [operation start];
-    
-    
-    [self.productTableView registerNib:[UINib nibWithNibName:@"ProductCell" bundle:nil] forCellReuseIdentifier:@"ProductCell"];
+    [self setViewDidLoad];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    [self setViewWillAppear];
+}
+
+- (void)setViewDidLoad{
+    self.productArray = [self.productArray getProductArrayFromJSONByCategoryId:self.categoryId tableViewToReload:self.productTableView];
+    [self.productTableView registerNib:[UINib nibWithNibName:@"ProductCell" bundle:nil] forCellReuseIdentifier:@"ProductCell"];
+}
+
+- (void)setViewWillAppear{
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.tintColor = [UIColor blueColor];
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
     [self.navigationItem setTitle:self.categoryName];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -113,14 +87,6 @@ UIAlertViewDelegate
 
 - (void)productCellViewTap:(UITapGestureRecognizer *)gestureRecognizer
 {
-//    ProductCell *cell = (ProductCell *)[[[gestureRecognizer.view superview] superview] superview];
-//    NSIndexPath *indexPath = [self.productTableView indexPathForCell:cell];
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Product"
-//                                                    message:[NSString stringWithFormat:@"You've selected %@",[[self.productArray objectAtIndex:indexPath.row] name]]
-//                                                   delegate:self
-//                                          cancelButtonTitle:@"OK"
-//                                          otherButtonTitles:nil, nil];
-//    [alert show];
     ProductCell *cell = (ProductCell *)[[[gestureRecognizer.view superview] superview] superview];
     NSIndexPath *indexPath = [self.productTableView indexPathForCell:cell];
     ImageFullScreenViewController *imageFullScreenViewController = [[ImageFullScreenViewController alloc] init];

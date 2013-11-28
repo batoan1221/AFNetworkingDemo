@@ -10,11 +10,4 @@
 
 @implementation ShopCategory
 
-- (ShopCategory *)initWithDictionary:(NSDictionary *)dictionary{
-    ShopCategory *resultCategory = [[ShopCategory alloc] init];
-    resultCategory.name = [dictionary objectForKey:@"name"];
-    resultCategory.categoryId = [dictionary objectForKey:@"term_id"];
-    return resultCategory;
-}
-
 @end

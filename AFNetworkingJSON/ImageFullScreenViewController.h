@@ -13,7 +13,6 @@
 
 @property (strong, nonatomic) NSString *imageURL;
 @property (strong, nonatomic) NSString *imageTitle;
-@property (strong, nonatomic) ProductViewController *productViewController;
 
 - (void)centerScrollViewContents;
 - (void)scrollViewDoubleTapped:(UITapGestureRecognizer*)recognizer;

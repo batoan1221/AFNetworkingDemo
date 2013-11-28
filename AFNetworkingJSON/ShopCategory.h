@@ -13,6 +13,4 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *categoryId;
 
-- (ShopCategory *)initWithDictionary:(NSDictionary *)dictionary;
-
 @end

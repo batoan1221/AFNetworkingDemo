@@ -15,20 +15,4 @@
 
 @implementation Product
 
-- (Product *)initWithDictionary:(NSDictionary *)dictionary{
-    
-    Product *product = [[Product alloc] init];
-    
-    product.name = [dictionary objectForKey:@"name"];
-    product.price = [dictionary objectForKey:@"price"];
-    product.stockStatus = [dictionary objectForKey:@"stock_status"];
-    NSArray *imageArray = [dictionary objectForKey:@"images"];
-    product.imageMutableArray = [[NSMutableArray alloc] init];
-    for(int i = 0;i < [imageArray count];i++){
-        [product.imageMutableArray addObject:[[ProductImage alloc] initWithArray:[imageArray objectAtIndex:i]]];
-    }
-    
-    return product;
-}
-
 @end

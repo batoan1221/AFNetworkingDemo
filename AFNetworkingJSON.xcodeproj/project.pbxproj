@@ -42,6 +42,10 @@
 		0B77E3731845D49E00BD430F /* ShopCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77E3721845D49E00BD430F /* ShopCategory.m */; };
 		0B77E3771845E71400BD430F /* ImageFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77E3751845E71400BD430F /* ImageFullScreenViewController.m */; };
 		0B77E3781845E71400BD430F /* ImageFullScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B77E3761845E71400BD430F /* ImageFullScreenViewController.xib */; };
+		84BE81441847A35000BA6CDA /* ShopCategory+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE81431847A35000BA6CDA /* ShopCategory+Additions.m */; };
+		84BE81471847A37F00BA6CDA /* ProductImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE81461847A37F00BA6CDA /* ProductImage+Additions.m */; };
+		84BE814D1847A3FF00BA6CDA /* Product+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE814C1847A3FF00BA6CDA /* Product+Additions.m */; };
+		84BE81501847A70400BA6CDA /* NSMutableArray+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE814F1847A70400BA6CDA /* NSMutableArray+Additions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +117,14 @@
 		0B77E3741845E71400BD430F /* ImageFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFullScreenViewController.h; sourceTree = "<group>"; };
 		0B77E3751845E71400BD430F /* ImageFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFullScreenViewController.m; sourceTree = "<group>"; };
 		0B77E3761845E71400BD430F /* ImageFullScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageFullScreenViewController.xib; sourceTree = "<group>"; };
+		84BE81421847A35000BA6CDA /* ShopCategory+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ShopCategory+Additions.h"; sourceTree = "<group>"; };
+		84BE81431847A35000BA6CDA /* ShopCategory+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ShopCategory+Additions.m"; sourceTree = "<group>"; };
+		84BE81451847A37F00BA6CDA /* ProductImage+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ProductImage+Additions.h"; sourceTree = "<group>"; };
+		84BE81461847A37F00BA6CDA /* ProductImage+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ProductImage+Additions.m"; sourceTree = "<group>"; };
+		84BE814B1847A3FF00BA6CDA /* Product+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Product+Additions.h"; sourceTree = "<group>"; };
+		84BE814C1847A3FF00BA6CDA /* Product+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Product+Additions.m"; sourceTree = "<group>"; };
+		84BE814E1847A70400BA6CDA /* NSMutableArray+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Additions.h"; sourceTree = "<group>"; };
+		84BE814F1847A70400BA6CDA /* NSMutableArray+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Additions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +154,6 @@
 		0B77E2F61845997600BD430F = {
 			isa = PBXGroup;
 			children = (
-				0B77E33B18459DC300BD430F /* AFNetworking */,
 				0B77E3081845997600BD430F /* AFNetworkingJSON */,
 				0B77E3211845997700BD430F /* AFNetworkingJSONTests */,
 				0B77E3011845997600BD430F /* Frameworks */,
@@ -175,27 +186,11 @@
 			children = (
 				0B77E3111845997600BD430F /* AFAppDelegate.h */,
 				0B77E3121845997600BD430F /* AFAppDelegate.m */,
-				0B77E3671845D0DD00BD430F /* CategoryViewController.h */,
-				0B77E3681845D0DD00BD430F /* CategoryViewController.m */,
-				0B77E3691845D0DD00BD430F /* CategoryViewController.xib */,
-				0B77E3711845D49E00BD430F /* ShopCategory.h */,
-				0B77E3721845D49E00BD430F /* ShopCategory.m */,
-				0B77E36C1845D15200BD430F /* CategoryCell.h */,
-				0B77E36D1845D15200BD430F /* CategoryCell.m */,
-				0B77E36F1845D16400BD430F /* CategoryCell.xib */,
-				0B77E3311845999C00BD430F /* ProductViewController.h */,
-				0B77E3321845999C00BD430F /* ProductViewController.m */,
-				0B77E3331845999C00BD430F /* ProductViewController.xib */,
-				0B77E3581845A62B00BD430F /* Product.h */,
-				0B77E3591845A62B00BD430F /* Product.m */,
-				0B77E35B1845A80E00BD430F /* ProductImage.h */,
-				0B77E35C1845A80E00BD430F /* ProductImage.m */,
-				0B77E336184599B400BD430F /* ProductCell.h */,
-				0B77E337184599B400BD430F /* ProductCell.m */,
-				0B77E339184599C900BD430F /* ProductCell.xib */,
-				0B77E3741845E71400BD430F /* ImageFullScreenViewController.h */,
-				0B77E3751845E71400BD430F /* ImageFullScreenViewController.m */,
-				0B77E3761845E71400BD430F /* ImageFullScreenViewController.xib */,
+				84BE812F18479F3600BA6CDA /* NIBs */,
+				84BE812B18479D7A00BA6CDA /* Categories */,
+				84BE812918479CBF00BA6CDA /* Controllers */,
+				84BE812818479CB100BA6CDA /* Vendors */,
+				84BE812A18479D2E00BA6CDA /* Models */,
 				0B77E3141845997600BD430F /* Images.xcassets */,
 				0B77E3091845997600BD430F /* Supporting Files */,
 			);
@@ -256,7 +251,169 @@
 				0B77E34D18459DC300BD430F /* AFURLSessionManager.h */,
 				0B77E34E18459DC300BD430F /* AFURLSessionManager.m */,
 			);
-			path = AFNetworking;
+			name = AFNetworking;
+			path = ../AFNetworking;
+			sourceTree = "<group>";
+		};
+		84BE812818479CB100BA6CDA /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				0B77E33B18459DC300BD430F /* AFNetworking */,
+			);
+			name = Vendors;
+			sourceTree = "<group>";
+		};
+		84BE812918479CBF00BA6CDA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				84BE812E18479F0800BA6CDA /* Product Image Details */,
+				84BE812D18479EC100BA6CDA /* Product Details */,
+				84BE812C18479E1900BA6CDA /* JKCategory List */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		84BE812A18479D2E00BA6CDA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				84BE813518479FED00BA6CDA /* Product Image */,
+				84BE813418479FE500BA6CDA /* Product */,
+				84BE813318479FD000BA6CDA /* JKCategory */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		84BE812B18479D7A00BA6CDA /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				84BE81381847A0A400BA6CDA /* JKCategory + Additions */,
+				84BE81371847A09800BA6CDA /* Product Image + Additions */,
+				84BE81361847A08200BA6CDA /* Product + Additions */,
+				84BE814E1847A70400BA6CDA /* NSMutableArray+Additions.h */,
+				84BE814F1847A70400BA6CDA /* NSMutableArray+Additions.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		84BE812C18479E1900BA6CDA /* JKCategory List */ = {
+			isa = PBXGroup;
+			children = (
+				0B77E3671845D0DD00BD430F /* CategoryViewController.h */,
+				0B77E3681845D0DD00BD430F /* CategoryViewController.m */,
+				0B77E3691845D0DD00BD430F /* CategoryViewController.xib */,
+			);
+			name = "JKCategory List";
+			sourceTree = "<group>";
+		};
+		84BE812D18479EC100BA6CDA /* Product Details */ = {
+			isa = PBXGroup;
+			children = (
+				0B77E3311845999C00BD430F /* ProductViewController.h */,
+				0B77E3321845999C00BD430F /* ProductViewController.m */,
+				0B77E3331845999C00BD430F /* ProductViewController.xib */,
+			);
+			name = "Product Details";
+			sourceTree = "<group>";
+		};
+		84BE812E18479F0800BA6CDA /* Product Image Details */ = {
+			isa = PBXGroup;
+			children = (
+				0B77E3741845E71400BD430F /* ImageFullScreenViewController.h */,
+				0B77E3751845E71400BD430F /* ImageFullScreenViewController.m */,
+				0B77E3761845E71400BD430F /* ImageFullScreenViewController.xib */,
+			);
+			name = "Product Image Details";
+			sourceTree = "<group>";
+		};
+		84BE812F18479F3600BA6CDA /* NIBs */ = {
+			isa = PBXGroup;
+			children = (
+				84BE813018479F4900BA6CDA /* Views */,
+			);
+			name = NIBs;
+			sourceTree = "<group>";
+		};
+		84BE813018479F4900BA6CDA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				84BE813218479F9300BA6CDA /* Product Table View Cell */,
+				84BE813118479F7600BA6CDA /* Category Table View Cell */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		84BE813118479F7600BA6CDA /* Category Table View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0B77E36C1845D15200BD430F /* CategoryCell.h */,
+				0B77E36D1845D15200BD430F /* CategoryCell.m */,
+				0B77E36F1845D16400BD430F /* CategoryCell.xib */,
+			);
+			name = "Category Table View Cell";
+			sourceTree = "<group>";
+		};
+		84BE813218479F9300BA6CDA /* Product Table View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0B77E336184599B400BD430F /* ProductCell.h */,
+				0B77E337184599B400BD430F /* ProductCell.m */,
+				0B77E339184599C900BD430F /* ProductCell.xib */,
+			);
+			name = "Product Table View Cell";
+			sourceTree = "<group>";
+		};
+		84BE813318479FD000BA6CDA /* JKCategory */ = {
+			isa = PBXGroup;
+			children = (
+				0B77E3711845D49E00BD430F /* ShopCategory.h */,
+				0B77E3721845D49E00BD430F /* ShopCategory.m */,
+			);
+			name = JKCategory;
+			sourceTree = "<group>";
+		};
+		84BE813418479FE500BA6CDA /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				0B77E3581845A62B00BD430F /* Product.h */,
+				0B77E3591845A62B00BD430F /* Product.m */,
+			);
+			name = Product;
+			sourceTree = "<group>";
+		};
+		84BE813518479FED00BA6CDA /* Product Image */ = {
+			isa = PBXGroup;
+			children = (
+				0B77E35B1845A80E00BD430F /* ProductImage.h */,
+				0B77E35C1845A80E00BD430F /* ProductImage.m */,
+			);
+			name = "Product Image";
+			sourceTree = "<group>";
+		};
+		84BE81361847A08200BA6CDA /* Product + Additions */ = {
+			isa = PBXGroup;
+			children = (
+				84BE814B1847A3FF00BA6CDA /* Product+Additions.h */,
+				84BE814C1847A3FF00BA6CDA /* Product+Additions.m */,
+			);
+			name = "Product + Additions";
+			sourceTree = "<group>";
+		};
+		84BE81371847A09800BA6CDA /* Product Image + Additions */ = {
+			isa = PBXGroup;
+			children = (
+				84BE81451847A37F00BA6CDA /* ProductImage+Additions.h */,
+				84BE81461847A37F00BA6CDA /* ProductImage+Additions.m */,
+			);
+			name = "Product Image + Additions";
+			sourceTree = "<group>";
+		};
+		84BE81381847A0A400BA6CDA /* JKCategory + Additions */ = {
+			isa = PBXGroup;
+			children = (
+				84BE81421847A35000BA6CDA /* ShopCategory+Additions.h */,
+				84BE81431847A35000BA6CDA /* ShopCategory+Additions.m */,
+			);
+			name = "JKCategory + Additions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,11 +518,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B77E3341845999C00BD430F /* ProductViewController.m in Sources */,
+				84BE81471847A37F00BA6CDA /* ProductImage+Additions.m in Sources */,
 				0B77E35318459DC300BD430F /* AFSecurityPolicy.m in Sources */,
 				0B77E35D1845A80E00BD430F /* ProductImage.m in Sources */,
 				0B77E338184599B400BD430F /* ProductCell.m in Sources */,
+				84BE81441847A35000BA6CDA /* ShopCategory+Additions.m in Sources */,
 				0B77E36A1845D0DD00BD430F /* CategoryViewController.m in Sources */,
 				0B77E35018459DC300BD430F /* AFHTTPRequestOperationManager.m in Sources */,
+				84BE814D1847A3FF00BA6CDA /* Product+Additions.m in Sources */,
 				0B77E35418459DC300BD430F /* AFURLConnectionOperation.m in Sources */,
 				0B77E3731845D49E00BD430F /* ShopCategory.m in Sources */,
 				0B77E36E1845D15200BD430F /* CategoryCell.m in Sources */,
@@ -374,6 +534,7 @@
 				0B77E35A1845A62B00BD430F /* Product.m in Sources */,
 				0B77E35518459DC300BD430F /* AFURLRequestSerialization.m in Sources */,
 				0B77E35118459DC300BD430F /* AFHTTPSessionManager.m in Sources */,
+				84BE81501847A70400BA6CDA /* NSMutableArray+Additions.m in Sources */,
 				0B77E3631845C18800BD430F /* UIImageView+AFNetworking.m in Sources */,
 				0B77E35218459DC300BD430F /* AFNetworkReachabilityManager.m in Sources */,
 				0B77E35618459DC300BD430F /* AFURLResponseSerialization.m in Sources */,
@@ -580,6 +741,7 @@
 				0B77E32D1845997700BD430F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0B77E32E1845997700BD430F /* Build configuration list for PBXNativeTarget "AFNetworkingJSONTests" */ = {
 			isa = XCConfigurationList;
@@ -588,6 +750,7 @@
 				0B77E3301845997700BD430F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

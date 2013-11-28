@@ -8,9 +8,8 @@
 
 #import "CategoryViewController.h"
 #import "CategoryCell.h"
-#import "ShopCategory.h"
 #import "ProductViewController.h"
-#import "AFNetworking.h"
+#import "NSMutableArray+Additions.h"
 
 @interface CategoryViewController ()
 
@@ -34,43 +33,17 @@ CategoryCellDelegate
     return _categoryArray;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    NSURL *url = [[NSURL alloc] initWithString:@"http://jkshop-staging.ap01.aws.af.cm/?json=products/tk_get_list_categories"];
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-    
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id reponseObject){
-        for (int i = 0; i < [reponseObject count]; i++) {
-            [self.categoryArray addObject:[[ShopCategory alloc] initWithDictionary:[reponseObject objectForKey:[NSString stringWithFormat:@"%d",i]]]];
-        }
-        [self.categoryTableView reloadData];
-        
-    }failure:nil];
-    
-    [operation start];
+    [self setViewDidLoad];
+}
+
+- (void)setViewDidLoad{
+    self.categoryArray = [self.categoryArray getCategoryArrayFromJSONWithTableViewToReload:self.categoryTableView];
     
     [self.navigationItem setTitle:@"Category"];
     [self.categoryTableView registerNib:[UINib nibWithNibName:@"CategoryCell" bundle:nil] forCellReuseIdentifier:@"CategoryCell"];
-
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
