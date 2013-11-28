@@ -11,15 +11,16 @@
 #import "ProductCell.h"
 #import "ProductImage.h"
 #import "ImageFullScreenViewController.h"
-#import "AFNetworking.h"
 #import "ODRefreshControl.h"
+#import "ShopCategory+Additions.h"
+#import "Product+Additions.h"
+#import "NSMutableArray+Additions.h"
 
 @interface ProductViewController ()
 
 <
 UITableViewDataSource,
-UITableViewDelegate,
-UIAlertViewDelegate
+UITableViewDelegate
 >
 
 @property (strong, nonatomic) NSMutableArray *productArray;
@@ -31,15 +32,6 @@ UIAlertViewDelegate
 @end
 
 @implementation ProductViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (NSMutableArray *)productArray{
     if (!_productArray)
@@ -66,11 +58,6 @@ UIAlertViewDelegate
     [self.navigationItem setTitle:self.categoryName];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 - (void)initView{
     self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
@@ -104,7 +91,22 @@ UIAlertViewDelegate
     [operation start];
     
     [self.productTableView registerNib:[UINib nibWithNibName:@"ProductCell" bundle:nil] forCellReuseIdentifier:@"ProductCell"];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [self setViewWillAppear];
+}
+
+- (void)setViewDidLoad{
+    self.productArray = [self.productArray getProductArrayFromJSONByCategoryId:self.categoryId tableViewToReload:self.productTableView];
+    [self.productTableView registerNib:[UINib nibWithNibName:@"ProductCell" bundle:nil] forCellReuseIdentifier:@"ProductCell"];
+}
+
+- (void)setViewWillAppear{
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.tintColor = [UIColor blueColor];
+    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
+    [self.navigationItem setTitle:self.categoryName];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

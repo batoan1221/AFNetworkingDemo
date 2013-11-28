@@ -16,6 +16,4 @@
 @property (strong, nonatomic) NSString *stockStatus;
 @property (strong, nonatomic) NSMutableArray *imageMutableArray;
 
-- (Product *)initWithDictionary:(NSDictionary *)dictionary;
-
 @end

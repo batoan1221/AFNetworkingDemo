@@ -8,12 +8,11 @@
 
 #import "CategoryViewController.h"
 #import "CategoryCell.h"
-#import "ShopCategory.h"
 #import "ProductViewController.h"
-#import "AFNetworking.h"
 #import "MYIntroductionPanel.h"
 #import "MYBlurIntroductionView.h"
 #import "AMBlurView.h"
+#import "NSMutableArray+Additions.h"
 
 @interface CategoryViewController ()
 
@@ -39,15 +38,6 @@ MYIntroductionDelegate
     return _categoryArray;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -71,6 +61,11 @@ MYIntroductionDelegate
     }failure:nil];
     
     [operation start];
+    [self setViewDidLoad];
+}
+
+- (void)setViewDidLoad{
+    self.categoryArray = [self.categoryArray getCategoryArrayFromJSONWithTableViewToReload:self.categoryTableView];
     
     [self.navigationItem setTitle:@"Category"];
     self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
@@ -80,12 +75,6 @@ MYIntroductionDelegate
     [self.spinner startAnimating];
     [self.categoryTableView registerNib:[UINib nibWithNibName:@"CategoryCell" bundle:nil] forCellReuseIdentifier:@"CategoryCell"];
     
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)buildIntro{
